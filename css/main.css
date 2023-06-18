@@ -98,12 +98,23 @@ body {
   transition: 0.5s;
   transform-style: preserve-3d;
 }
+.zoomIn .menu-item {
+  opacity: 0;
+}
+
+.zoomIn .menu-item.current-menu {
+  opacity: 1;
+}
 
 .back-btn {
+  display: none;
   position: absolute;
   right: 10px;
   top: 10px;
-  display: none;
+}
+
+.current-menu .back-btn {
+  display: inline-block;
 }
 
 .menu-item-photo {
