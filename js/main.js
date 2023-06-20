@@ -99,16 +99,20 @@ const targetPos = {
 function render() {
   distX = targetPos.x - handPos.x;
   distY = targetPos.y - handPos.y;
-  handPos.x = handPos.x + distX * 0.1;
-  handPos.y = handPos.y + distY * 0.1;
+  handPos.x = handPos.x + distX * 0.15;
+  handPos.y = handPos.y + distY * 0.15;
 
-  hand.style.transform = `translate(${handPos.x}px, ${handPos.y}px)`;
+  hand.style.transform = `translate(${handPos.x - 50}px, ${handPos.y + 5}px)`;
   requestAnimationFrame(render);
 }
 render();
 
-// window.addEventListener('mousemove', e => {
-//   targetPos.x = e.client.x;
-//   targetPos.y = e.clientY;
-//   hand.style.transform = `translate(${e.clientX - 50}px, ${e.clientY}px)`;
-// });
+window.addEventListener('mousemove', e => {
+  targetPos.x = e.clientX - innerWidth * 0.7;
+  targetPos.y = e.clientY - innerHeight * 0.7;
+  // hand.style.transform = `translate(${e.clientX - 50}px, ${e.clientY}px)`;
+});
+
+leaflet.addEventListener('animationend', () => {
+  leaflet.style.animation = 'none';
+});

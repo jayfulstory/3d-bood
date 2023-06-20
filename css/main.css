@@ -1,3 +1,12 @@
+@keyframes start-ani {
+  0% {
+    transform: translate(-100%, 100%) rotate(-540deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
 html {
   font-size: 14px;
 }
@@ -5,11 +14,13 @@ body {
   background: url(../images/tablewood.jpg);
   background-size: auto 130px;
   perspective: 1500px;
-  cursor: none;
+  /* cursor: none; */
 }
 
 .hand {
   position: absolute;
+  left: 70%;
+  top: 70%;
   width: 250px;
   z-index: 10;
   pointer-events: none;
@@ -17,6 +28,8 @@ body {
 
 .hand img {
   transition: 1s;
+  /* -webkit-user-drag: none; */
+  user-select: none;
   transform-origin: left top;
 }
 
@@ -35,6 +48,8 @@ body {
   margin: auto;
   transform-style: preserve-3d;
   transition: 1s;
+  cursor: pointer;
+  animation: start-ani 1s forwards;
 }
 
 .page {
